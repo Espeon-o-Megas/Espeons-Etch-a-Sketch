@@ -50,8 +50,9 @@ body {
  background-color: #15616d;
  display: flex;
  flex-wrap: wrap;
- align-items:center;
- justify-content:top;
+ align-items:flex-end;
+ justify-content:flex-end;
+ padding: 10px;
 }
 
 .tips {
@@ -66,8 +67,8 @@ body {
 }
 
 .tile {
- border: solid 1px #001524;
  box-sizing: border-box;
+ border: solid 1px #15616d;
 }
 
 .coloredTile {

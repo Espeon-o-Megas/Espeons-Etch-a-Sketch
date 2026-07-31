@@ -2,13 +2,13 @@ let gamebox =document.querySelector('.gamebox');
 
 let drawingPad = document.querySelector('.drawPad');
 
-let tilesPerRow=50;
+let tilesPerRow=30;
 fillPad();
 
 function fillPad () {
- let tileSize= Math.floor((drawingPad.offsetWidth)/tilesPerRow);
+ let tileSize= Math.floor((drawingPad.offsetWidth-20)/tilesPerRow);
  console.log(tileSize);
- let tileRows= Math.floor((drawingPad.offsetHeight)/tileSize);
+ let tileRows= Math.floor((drawingPad.offsetHeight-20)/tileSize);
  console.log(tileRows);
  for (let i=0; i<tileRows; i++) {
  for (let j=0; j<tilesPerRow; j++){
