@@ -36,15 +36,18 @@ body {
  display: flex;
  height:100%;
  width:100%;
+ gap:10px;
+ flex-wrap: wrap;
  justify-content: center;
  align-items: center;
  padding: 10px;
 }
 
 .drawPad {
+ flex: 1;
+ min-width: 500px;
+ align-self: stretch;
  background-color: #15616d;
- width: 700px;
- height: 700px;
  padding: 10px;
  display: flex;
  flex-wrap: wrap;
@@ -52,9 +55,25 @@ body {
  align-items: center;
 }
 
+/*.tips {
+ background-color: #15616d;
+ flex:1;
+ align-self: stretch;
+ min-width:200px;
+ max-width: 700px;
+ max-height: 700px;
+ padding: 10px;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+} */
+
 .tile {
  box-sizing: border-box;
  border: solid 1px #15616d;
+ opacity: 100%;
+}
+
+.coloredTile {
  background-color: #001524;
- opacity: 50%;
 }
