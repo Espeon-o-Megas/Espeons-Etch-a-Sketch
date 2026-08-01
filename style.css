@@ -44,16 +44,21 @@ body {
 }
 
 .drawPad {
- flex: 5 5 250px;
- min-width: 400px;
  padding: 5px;
  border: solid 5px #ff7d00;
- align-self: center;
  background-color: #15616d;
  display: flex;
  flex-wrap: wrap;
  align-items:center;
  justify-content:center;
+}
+
+.padcontainer {
+ flex:3 3 200px;
+ display: flex;
+ justify-content: center;
+ align-content: center;
+ padding: 5px;
 }
 
 .tips {
