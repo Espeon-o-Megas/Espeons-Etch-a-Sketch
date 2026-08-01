@@ -38,37 +38,37 @@ body {
  width:100%;
  gap:10px;
  flex-wrap: wrap;
- justify-content: center;
- align-items: center;
+ justify-content: flex-start;
+ align-items: flex-start;
  padding: 10px;
 }
 
 .drawPad {
- flex: 3;
- min-width: 500px;
- align-self: stretch;
+ flex: 5 5 250px;
+ min-width: 400px;
+ padding: 5px;
+ border: solid 5px #ff7d00;
+ align-self: center;
  background-color: #15616d;
  display: flex;
  flex-wrap: wrap;
- align-items:flex-end;
- justify-content:flex-end;
- padding: 10px;
+ align-items:center;
+ justify-content:center;
 }
 
 .tips {
  background-color: #ff7d00;
- flex:1;
+ display: flex;
+ flex: 1;
+ flex-direction: column;
  align-self: stretch;
  min-width:200px;
  padding: 10px;
- display: flex;
- flex-wrap: wrap;
- align-items: center;
+ order: 1;
 }
 
 .tile {
- box-sizing: border-box;
- border: solid 1px #15616d;
+ outline: solid 1px #15616d;
 }
 
 .coloredTile {
@@ -79,6 +79,30 @@ body {
  background-color: #78290f;
  padding: 5px;
  margin: 10px 0px;
+ display: flex;
+ gap:5px;
+ width:95%;
+ justify-content: space-between;
+ align-self: center;
+}
+
+.gridButton {
+ flex: 1;
+ border: solid 3px #ff7d00;
+ background-color:#78290f;
+ color: #ff7d00;
+ font: 2em monospace, bold;
+ padding: 0px 5px
+}
+
+#currentGridSize {
+ flex: 6;
+ text-align: center;
+ border: solid 3px #ff7d00;
+ background-color:#78290f;
+ color: #ff7d00;
+ font: 2em monospace, bold;
+ padding: 0px 10px
 }
 
 .textbox {
