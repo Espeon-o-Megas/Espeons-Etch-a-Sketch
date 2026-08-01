@@ -101,8 +101,11 @@ body {
  border: solid 3px #ff7d00;
  background-color:#78290f;
  color: #ff7d00;
- font: 2em monospace, bold;
- padding: 0px 10px
+ font: 1.5em monospace, bold;
+ padding: 5px;
+ display: flex;
+ align-items: center;
+ justify-content: center;
 }
 
 .textbox {
