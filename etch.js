@@ -1,5 +1,7 @@
 const drawingPad = document.querySelector('.drawPad');
-let gridSize=16;
+const grids = [8, 16, 32, 64];
+let gridpicker = 0;
+let gridSize=grids[gridpicker];
 
 window.onload = () => {
  padFit();
@@ -9,9 +11,6 @@ window.onload = () => {
 
 window.onresize = () => {
  padFit();
- updateGridSizeDisplay();
- padClear ();
- padFill ();
 }
 
 function updateGridSizeDisplay () {
@@ -27,6 +26,13 @@ function padFit () {
   drawingPad.style.height=0.90*window.innerHeight+'px';
   drawingPad.style.width = drawingPad.style.height;
  }
+ let tiles = document.querySelectorAll('.tile')
+ let padWidth = drawingPad.offsetWidth-40
+ let tileSize = Math.floor(padWidth/gridSize);
+ tiles.forEach((tile)=>{ 
+  tile.style.height = tileSize+'px';
+  tile.style.width = tileSize+'px';
+ }) 
 }
 
 function createTile (size) {
@@ -66,14 +72,10 @@ function padClear () {
 let rightButton = document.querySelector('.plus');
 rightButton.addEventListener('click', ()=>{
 padClear();
-if (gridSize<64){
- gridSize *=2;
- if (gridSize>=64) {
-  gridSize=64;
- }
-} else {
- gridSize = 64;
+if (gridpicker<3) {
+ gridpicker++;
 }
+gridSize = grids[gridpicker];
 updateGridSizeDisplay();
 padFill();
 })
@@ -81,14 +83,10 @@ padFill();
 let leftButton = document.querySelector('.minus');
 leftButton.addEventListener('click', ()=>{
 padClear();
-if (gridSize>8){
- gridSize /=2;
- if (gridSize<=8){
-  gridSize =8;
- }
-} else {
- gridSize = 8;
+if (gridpicker>0) {
+ gridpicker--;
 }
+gridSize = grids[gridpicker];
 updateGridSizeDisplay();
 padFill();
 })

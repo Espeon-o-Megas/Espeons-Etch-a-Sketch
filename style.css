@@ -75,6 +75,9 @@ body {
 .tile {
  outline: solid 1px #15616d;
 }
+.tile:hover {
+ outline: solid 1px #001524;
+}
 
 .coloredTile {
  background-color: #001524;
