@@ -38,12 +38,15 @@ body {
  width:100%;
  gap:10px;
  flex-wrap: wrap;
- justify-content: flex-start;
- align-items: flex-start;
+ justify-content: center;
+ align-items: center;
  padding: 10px;
 }
 
 .drawPad {
+ height: 85cqmin;
+ width: 85cqmin;
+
  padding: 5px;
  border: solid 5px #ff7d00;
  background-color: #15616d;
@@ -51,14 +54,6 @@ body {
  flex-wrap: wrap;
  align-items:center;
  justify-content:center;
-}
-
-.padcontainer {
- flex:3 3 200px;
- display: flex;
- justify-content: center;
- align-content: center;
- padding: 5px;
 }
 
 .tips {
@@ -74,9 +69,26 @@ body {
 
 .tile {
  outline: solid 1px #15616d;
+ flex:1;
 }
 .tile:hover {
  outline: solid 1px #001524;
+}
+#grid8{
+ min-width:12.5%;
+ min-height: 12.5%;
+}
+#grid16{
+ min-width: 6.25%;
+ min-height: 6.25%;
+}
+#grid32{
+ min-width: 3.125%;
+ min-height: 3.125%;
+}
+#grid64{
+ min-width: 1.625%;
+ min-height: 1.625%;
 }
 
 .coloredTile {
