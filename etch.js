@@ -6,6 +6,7 @@ let gridSize=grids[gridpicker];
 window.onload = () => {
  updateGridSizeDisplay();
  padFill ();
+ tileFilter();
 }
 
 function updateGridSizeDisplay () {
@@ -17,15 +18,31 @@ function createTile () {
  const tile = document.createElement('div');
  tile.classList.add('tile');
  tile.id = ('grid'+gridSize);
+ tile.opacity = 0.0;
+ tile.touched = false;
+
  tile.addEventListener('mousemove',(event)=>{
   if (event.buttons===1 && event.ctrlKey===false){
-   event.target.classList.add('coloredTile');
+   if (event.target.opacity<0){event.target.opacity=0};
+   if (event.target.touched === false){
+    event.target.touched = true;
+    event.target.opacity +=0.34;
+    event.target.style.opacity = event.target.opacity;
+   } 
   } else if (event.buttons===1 && event.ctrlKey===true){
-   event.target.classList.remove('coloredTile');
+   if (event.target.opacity>1) {event.target.opacity =1};
+   if (event.target.touched === false){
+   event.target.touched = true;
+   event.target.opacity -=0.34;
+   event.target.style.opacity = event.target.opacity;
+   }
   }
  })
- tile.addEventListener('touchstart',(event)=>{
-  event.target.classList.add('coloredTile');
+ tile.addEventListener('mouseleave', (event)=>{
+  event.target.touched = false;
+ })
+ tile.addEventListener('mouseup', (event)=>{
+  event.target.touched = false;
  })
  return tile;
 }
