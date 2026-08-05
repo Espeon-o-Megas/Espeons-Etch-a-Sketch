@@ -16,7 +16,6 @@
   <div class="textbox">
    <h1>Behold the Etch-a-Sketch!</h1>
     <strong> Draw</strong> by holding down the mouse and dragging it over the canvas. <br> <br>
-    <strong> Erase</strong> by drawing while holding down ctrl. <br> <br>
     <strong> Clear</strong> the canvas by refreshing the page. <br> <br>
     <strong> Change Grid Size </strong> by using this... thing below:
   </div>
@@ -27,10 +26,29 @@
   </div>
   <div class="textbox">
     <strong> Warning!</strong> Changing grid size will delete your precious drawing!
-    Make sure you hate it before clicking! <br> <br>
+    Make sure you hate it before clicking! <br>
   </div>
- </div>
- <div class="drawPad"></div>
+  <div class="textbox">
+    <strong> Select a Tool</strong> from these below to start drawing! <br>
+  </div>
+  <div class="toolbox">
+   <button class="gridButton tool" id="pen">PEN</button>
+   <button class="gridButton tool" id="pencil">PENCIL</button>
+   <button class="gridButton tool" id="eraser">ERASER</button>
+  </div>
+  <div class="textbox">
+    <strong> Pick a Color</strong> from the buttons below! <br>
+  </div>
+  <div class="colorbox">
+   <button class="gridButton color" id="darkB"></button>
+   <button class="gridButton color" id="lightB"></button>
+   <button class="gridButton color" id="orange"></button>
+   <button class="gridButton color" id="brown"></button>
+  </div>
+  </div>
+  <div class="wrapper">
+  <div class="drawPad"></div>
+  </div>
  <script src="./etch.js"></script>
 </body>
 </html>

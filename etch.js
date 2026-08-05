@@ -2,12 +2,12 @@ const pad = document.querySelector('.drawPad');
 const grids = [8, 16, 32, 64];
 let gridpicker = 0;
 let gridSize=grids[gridpicker];
+let tool = '';
+let color ='';
 
 window.onload = () => {
  updateGridSizeDisplay();
- padFill ();
- tileFilter();
-}
+ padFill ();}
 
 function updateGridSizeDisplay () {
  const midB = document.querySelector('#currentGridSize');
@@ -22,25 +22,30 @@ function createTile () {
  tile.touched = false;
 
  tile.addEventListener('mousemove',(event)=>{
-  if (event.buttons===1 && event.ctrlKey===false){
-   if (event.target.opacity<0){event.target.opacity=0};
-   if (event.target.touched === false){
-    event.target.touched = true;
-    event.target.opacity +=0.34;
-    event.target.style.opacity = event.target.opacity;
-   } 
-  } else if (event.buttons===1 && event.ctrlKey===true){
-   if (event.target.opacity>1) {event.target.opacity =1};
-   if (event.target.touched === false){
+  if (event.buttons===1 && event.target.touched === false){
    event.target.touched = true;
-   event.target.opacity -=0.34;
-   event.target.style.opacity = event.target.opacity;
+   event.target.style['background-color']=color;
+   if (event.target.opacity<0){event.target.opacity=0};
+   if (event.target.opacity>1) {event.target.opacity =1};
+   switch (tool) {
+    case 'pen':
+     event.target.opacity = 1;
+    break;
+    case 'pencil':
+     event.target.opacity +=0.34;
+    break;
+    case 'eraser':
+     event.target.opacity = 0;
+    break;
    }
+   event.target.style.opacity = event.target.opacity;
   }
  })
+
  tile.addEventListener('mouseleave', (event)=>{
   event.target.touched = false;
  })
+ 
  tile.addEventListener('mouseup', (event)=>{
   event.target.touched = false;
  })
@@ -77,4 +82,39 @@ buttonbox.addEventListener('click', (event)=>{
  })
  updateGridSizeDisplay();
  padFill();
+})
+
+let toolbox = document.querySelector('.toolbox');
+toolbox.addEventListener('click', (event)=>{
+ let tools = document.querySelectorAll('.tool');
+ tools.forEach((object)=>{
+  if (object===event.target){
+   tool = object.id
+   object.style['border-color']='#15616d'
+  } else if (object!== event.target){
+   object.style['border-color']='#ff7d00'
+  }
+ })
+})
+
+let colorbox = document.querySelector('.colorbox');
+colorbox.addEventListener('click', (event)=>{
+ let colors = document.querySelectorAll('.color');
+ colors.forEach((object)=>{
+  switch (object.id){
+   case 'lightB': object.color='#15616d';break;
+   case 'darkB': object.color='#001524';break;
+   case 'orange': object.color='#ff7d00';break;
+   case 'brown': object.color='#78290f';break;
+  }
+ })
+
+ colors.forEach((object)=>{
+  if (object===event.target){
+   color = object.color;
+   object.style['outline-color']='#15616d'
+  } else if (object!== event.target){
+   object.style['outline-color']='transparent'
+  }
+ })
 })

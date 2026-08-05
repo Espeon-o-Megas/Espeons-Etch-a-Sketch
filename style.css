@@ -43,13 +43,20 @@ body {
  padding: 10px;
 }
 
+.wrapper {
+ flex:3;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+}
+
 .drawPad {
  height: 85cqmin;
  width: 85cqmin;
 
  padding: 5px;
  border: solid 5px #ff7d00;
- background-color: #15616d;
+ background-color: #ffecd1;
  display: flex;
  flex-wrap: wrap;
  align-items:center;
@@ -68,7 +75,6 @@ body {
 }
 
 .tile {
- outline: solid 1px #15616d;
  background-color: #001524;
  opacity: 0.0;
  flex:1;
@@ -90,7 +96,7 @@ body {
  min-height: 1.625%;
 }
 
-.buttonbox {
+.buttonbox, .toolbox, .colorbox {
  background-color: #78290f;
  padding: 5px;
  margin: 10px 0px;
@@ -107,7 +113,8 @@ body {
  background-color:#78290f;
  color: #ff7d00;
  font: 2em monospace, bold;
- padding: 0px 5px
+ padding: 0px 5px;
+ min-height:20px;
 }
 
 #currentGridSize {
@@ -125,4 +132,20 @@ body {
 
 .textbox {
  margin: 5px;
+}
+.color {
+ margin: 1px;
+ outline:solid 3px transparent;
+}
+#lightB{
+ background-color: #15616d;
+}
+#darkB{
+ background-color: #001524;
+}
+#orange{
+ background-color: #ff7d00;
+}
+#brown{
+ background-color: #78290f;
 }
